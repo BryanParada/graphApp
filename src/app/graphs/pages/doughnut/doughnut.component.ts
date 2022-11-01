@@ -1,5 +1,5 @@
 import { Component  } from '@angular/core';
-import { ChartData, ChartType, Color } from 'chart.js'; 
+import { ChartData, ChartType} from 'chart.js'; 
 
 @Component({
   selector: 'app-doughnut',
