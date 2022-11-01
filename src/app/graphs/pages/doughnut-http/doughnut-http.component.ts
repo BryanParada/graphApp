@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { GraphsService } from '../../services/graphs.service';
 
 @Component({
   selector: 'app-doughnut-http',
@@ -8,9 +9,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class DoughnutHttpComponent implements OnInit {
 
-  constructor() { }
+  constructor( private graphService: GraphsService) { }
 
   ngOnInit(): void {
+   this.graphService.getDataSocialNetworks()
+       .subscribe( data =>{
+        console.log(data);
+        
+       })
+    
   }
 
 }
