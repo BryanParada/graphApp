@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, ViewChild, Input } from '@angular/core';
 import { ChartConfiguration, ChartData, ChartEvent, ChartType } from 'chart.js';
 import DataLabelsPlugin from 'chartjs-plugin-datalabels';
 import { BaseChartDirective } from 'ng2-charts';
@@ -12,6 +12,8 @@ import { BaseChartDirective } from 'ng2-charts';
 export class GraphBarComponent {
 
   @ViewChild(BaseChartDirective) chart: BaseChartDirective | undefined;
+  @Input() horizontal: boolean = false;
+  @Input() barChartData!: ChartData<'bar'>;
 
   public barChartOptions: ChartConfiguration['options'] = {
     responsive: true,
@@ -32,18 +34,30 @@ export class GraphBarComponent {
       },
     },
   };
-  public barChartType: ChartType = 'bar';
-  public barChartPlugins = [DataLabelsPlugin];
  
-  public barChartData: ChartData<'bar'> = {
-    labels: ['2016','2017','2018', '2019', '2020', '2021', '2022', '2023', '2024'],
-    datasets: [
-      { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A', backgroundColor: '#3280FA', hoverBackgroundColor: '#32DBBE' },
-      { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B', backgroundColor: '#2B9BD9', hoverBackgroundColor: '#32DBBE' },
-      { data: [12, 43, 4, 13, 55, 53, 21] , label: 'Series C', backgroundColor: '#3CDEF0', hoverBackgroundColor: '#32DBBE' },
-    ],
-  };
+    public barChartType: ChartType = 'bar';
+    public barChartPlugins = [DataLabelsPlugin];
  
+  //public barChartData: ChartData<'bar'> = {
+    // labels: ['2016','2017','2018', '2019', '2020', '2021', '2022', '2023', '2024'],
+    // datasets: [
+    //   { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A', backgroundColor: '#3280FA', hoverBackgroundColor: '#32DBBE' },
+    //   { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B', backgroundColor: '#2B9BD9', hoverBackgroundColor: '#32DBBE' },
+    //   { data: [12, 43, 4, 13, 55, 53, 21] , label: 'Series C', backgroundColor: '#3CDEF0', hoverBackgroundColor: '#32DBBE' },
+    // ],
+  //};
+ 
+constructor(){
+  //console.log(this.horizontal);
+}
+
+ngOnInit(): void {
+  if (this.horizontal) {
+      this.barChartOptions!.indexAxis = 'y';
+      this.barChartOptions!.scales!["y"]!.min = 0;
+  }
+}
+
   // events
   public chartClicked({
     event,

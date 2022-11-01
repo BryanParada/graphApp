@@ -14,11 +14,12 @@
  
     <div class="row">
         <div class="col-md-6">
-            <app-graph-bar></app-graph-bar>
+            <app-graph-bar [horizontal]="true" 
+                            [barChartData]="productoData" ></app-graph-bar>
         </div>
 
         <div class="col-md-6">
-            <app-graph-bar></app-graph-bar>
+            <app-graph-bar [barChartData]="proveedoresData" ></app-graph-bar>
         </div>
       </div>
 
