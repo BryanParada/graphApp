@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
+import { NgChartsModule } from 'ng2-charts';
+
 import { GraphsRoutingModule } from './graphs-routing.module';
 import { BarsComponent } from './pages/bars/bars.component';
 import { DoubleBarsComponent } from './pages/double-bars/double-bars.component';
 import { DoughnutComponent } from './pages/doughnut/doughnut.component';
 import { DoughnutHttpComponent } from './pages/doughnut-http/doughnut-http.component';
 import { GraphBarComponent } from './components/graph-bar/graph-bar.component';
-
-
+ 
 @NgModule({
   declarations: [
     BarsComponent,
@@ -19,7 +20,8 @@ import { GraphBarComponent } from './components/graph-bar/graph-bar.component';
   ],
   imports: [
     CommonModule,
-    GraphsRoutingModule
+    GraphsRoutingModule,
+    NgChartsModule
   ]
 })
 export class GraphsModule { }
