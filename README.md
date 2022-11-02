@@ -2,6 +2,39 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
 
+![image](https://user-images.githubusercontent.com/51382458/199504470-a901a308-f1e7-4b32-8749-f0c8ecafcf92.png)
+
+## Demo
+
+https://graphapp-d537b.web.app/
+
+## Features
+
+* Interact with various types of graphs
+* Responsive Sidebar
+
+## How to use?
+
+Clone/Download this project, run the commands "npm install" and "ng serve -o" to open the app.
+Download the DB from my other project: https://github.com/BryanParada/graphAppDB
+
+To run this db is required to install Json Server via npm with the next command:
+
+npm install -g json-server
+
+to start Json Server:
+
+json-server --watch db.json
+
+more info at: 
+https://www.npmjs.com/package/json-server
+
+## Built with
+
+* ![Angular][Angular.io]
+* ![TypeScript][TypeScript.io]
+* ![Bootstrap][Bootstrap.io]  
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
@@ -25,3 +58,8 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+[Angular.io]: https://img.shields.io/badge/-Angular-red
+[TypeScript.io]: https://img.shields.io/badge/-TypeScript-blue
+[Bootstrap.io]: https://img.shields.io/badge/-Bootstrap%205-blueviolet 
+
