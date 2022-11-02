@@ -1,4 +1,5 @@
-import { Component  } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, ViewChild, Inject } from '@angular/core';
+import { DOCUMENT } from '@angular/common';
 
 interface menuItem {
   route: string;
@@ -9,15 +10,43 @@ interface menuItem {
 @Component({
   selector: 'app-menu',
   templateUrl: './menu.component.html',
-  styles: [
+  styles: [ 
     `
     li {
       cursor: pointer;
     }
-    `
+
+    
+    ` 
   ]
 })
-export class MenuComponent  {
+export class MenuComponent implements AfterViewInit {
+ 
+  @ViewChild('iconNavbarSidenav') iconNavbarSidenav!: ElementRef;
+  //@ViewChild('sidenavMain') sidenavMain!: Element;  
+    
+  className = 'g-sidenav-pinned';
+
+  constructor(@Inject(DOCUMENT) private document: Document){ }
+
+  ngAfterViewInit(): void {
+    //console.log('Hola Mundo');
+    //console.log(typeof(this.iconNavbarSidenav.nativeElement.innerHTML))
+    // console.log(typeof(this.sidenavMain.nativeElement.innerHTML)) 
+  } 
+
+  switchTheme(){
+
+    if (this.document.body.classList.contains(this.className)) {
+      this.document.body.classList.remove(this.className);  
+  
+    } else {
+      this.document.body.classList.add(this.className); 
+    }
+
+  }
+    
+ 
  
   menu: menuItem[] = [
     {route: '/graphs/bars', text: 'Bars', icon: 'equalizer'},
@@ -27,6 +56,7 @@ export class MenuComponent  {
 
   ];
 
+  
  
 
 }
