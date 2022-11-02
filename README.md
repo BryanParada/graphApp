@@ -11,8 +11,12 @@ https://graphapp-d537b.web.app/
 ## Features
 
 * Interact with various types of graphs
+* Dynamic Charts
+* Bar and dount charts
+* Redraw graph values
+* Graphs based on HTTP requests
 * Responsive Sidebar
-
+ 
 ## How to use?
 
 Clone/Download this project, run the commands "npm install" and "ng serve -o" to open the app.
